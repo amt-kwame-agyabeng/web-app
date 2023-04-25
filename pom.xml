@@ -5,7 +5,7 @@
 	<groupId>com.mt</groupId>
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
-	<version>3.1.1-SNAPSHOT</version>
+	<version>3.1.2-SNAPSHOT</version>
 	
 	<name>maven-web-application</name>
 
@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>JOMACS Releases Nexus Repository</name>
-	      <url>http://172.31.12.173:8081/repository/float-release/</url>
+	      <url>http://172.31.12.99:8081/repository/james-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>JOMACS Snapshot Nexus Repository </name>
-	      <url>http://172.31.12.173:8081/repository/float-snapshot/</url>
+	      <url>http://172.31.12.99:8081/repository/james-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
