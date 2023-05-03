@@ -28,7 +28,7 @@ pipeline{
           sh "echo end of code scan"
         }  
       }
-     /*
+     
       stage("4. Store Artifacts"){
         steps{
            sh "echo Deploy Artifact"
@@ -36,6 +36,7 @@ pipeline{
         }  
       }
       
+      /*
       stage("5. Deploying to Tomcat in UAT"){
         steps{
            sh "echo start deploying to server in UAT Env"
