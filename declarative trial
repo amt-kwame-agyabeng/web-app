@@ -28,7 +28,7 @@ pipeline{
           sh "echo end of code scan"
         }  
       }
-      
+     //*
       stage("4. Store Artifacts"){
         steps{
            sh "echo Deploy Artifact"
@@ -49,5 +49,6 @@ pipeline{
             emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'info@jomacsit.com'
         }  
       }
+      *//
     }
 }
