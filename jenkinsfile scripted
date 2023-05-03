@@ -6,7 +6,7 @@ node(""){
   
   stage("1. Git clone from repo"){
      sh "echo start of git clone"
-     git branch: 'main', url: 'https://github.com/femmyreuben/jomacs-web-app.git'
+     git branch: 'main', url: 'https://github.com/nuviagithub/web-app.git'
      sh "echo end of git clone"
    }
    
@@ -30,7 +30,7 @@ node(""){
    
    stage("5. Deploy to Tomcat"){
        sh "echo start deploying to Tomcat server in UAT"
-       deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://18.117.162.68:9090')], contextPath: null, war: 'target/*.war'
+       deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://52.42.179.175:9090')], contextPath: null, war: 'target/*.war'
        sh "echo end of deploy to Tomcat server in UAT"
    }
 }
