@@ -1,0 +1,40 @@
+pipeline{
+  agent none
+  tools{
+    maven "maven3.8.8"
+  }
+
+    stages{
+      stage("0. Start of Pipeline Job"){
+       agent {label "node1"}
+        steps{
+          sh "echo start of pipeline job"
+        }
+      }
+
+      stage("1. Git clone from repo"){
+        agent {label "node1"}
+        steps{
+         sh "echo start of git clone"
+         git branch: 'main', url: 'https://github.com/nuviagithub/web-app.git'
+         sh "echo end of git clone"
+        }
+      }
+      
+      stage("2. Build from Maven"){
+       agent {label "node1"}
+        steps{
+          sh "echo start building from Maven"
+          sh "mvn clean package"
+          sh "echo end of build"
+        }  
+      }
+      
+      stage("3. Code Scan"){
+      agent {label "node1"}
+        steps{
+          sh "echo start of code scan"
+          sh "mvn sonar:sonar"
+          sh "echo end of code scan"
+        }  
+      }
