@@ -5,6 +5,12 @@ pipeline{
   }
 
     stages{
+      stage("0. Start of Pipeline Job"){
+        steps{
+          sh "echo start of pipeline job"
+        }
+      }
+
       stage("1. Git clone from repo"){
         steps{
          sh "echo start of git clone"
@@ -28,7 +34,7 @@ pipeline{
           sh "echo end of code scan"
         }  
       }
-     
+      
       stage("4. Store Artifacts"){
         steps{
            sh "echo Deploy Artifact"
@@ -36,11 +42,10 @@ pipeline{
         }  
       }
       
-      /*
       stage("5. Deploying to Tomcat in UAT"){
         steps{
            sh "echo start deploying to server in UAT Env"
-           deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://35.93.148.202:9090')], contextPath: null, war: 'target/*.war'
+           deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://52.42.179.175:9090')], contextPath: null, war: 'target/*.war'
         }  
       }
       
@@ -50,6 +55,5 @@ pipeline{
             emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'info@jomacsit.com'
         }  
       }
-      */
     }
 }
