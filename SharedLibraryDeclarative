@@ -1,0 +1,48 @@
+
+@Library('JomacsSharedLibrary') _
+pipeline{
+  agent any
+  tools{
+    maven "maven3.8.8"
+  }
+
+    stages{
+      stage("0. Start of Pipeline Job"){
+        steps{
+          sh "echo start of pipeline job"
+        }
+      }
+
+      stage("1. Git clone from repo"){
+        steps{
+         sh "echo start of git clone"
+         git branch: 'main', url: 'https://github.com/nuviagithub/web-app.git'
+         sh "echo end of git clone"
+        }
+      }
+      
+      stage("2. Building from Maven"){
+        steps{
+          sh "echo start building from Maven"
+        common ("Build")
+          sh "echo end of build"
+        }  
+      }
+      
+      stage("3. Code Scaning"){
+        steps{
+          sh "echo start of code scan"
+          common ("Code Quality Report")
+          sh "echo end of code scan"
+        }  
+      }
+      
+      stage("4. Deploying of Artifacts"){
+        steps{
+          sh "echo start of deploying"
+          common ("Upload Into Nexus")
+          sh "echo end deploying artifacts"
+    }
+   }
+  }
+ }
