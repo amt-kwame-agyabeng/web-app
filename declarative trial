@@ -39,13 +39,14 @@ pipeline{
         steps{
            sh "echo Deploy Artifact"
            sh "mvn deploy"
+           sh "echo end of transfer of Artifacts"
         }  
       }
       
       stage("5. Deploying to Tomcat in UAT"){
         steps{
            sh "echo start deploying to server in UAT Env"
-           deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://52.42.179.175:9090')], contextPath: null, war: 'target/*.war'
+           deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://172.31.20.224:9090')], contextPath: null, war: 'target/*.war'
         }  
       }
       
