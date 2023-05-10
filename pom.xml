@@ -102,7 +102,7 @@
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>JOMACS Snapshot Nexus Repository </name>
+	      <name>JOMACS Snapshot Nexus Repository</name>
 	      <url>http://172.31.12.99:8081/repository/workday-snapshot/</url>
 	    </snapshotRepository>
 	    
