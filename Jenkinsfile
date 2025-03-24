@@ -73,7 +73,7 @@ pipeline {
             slackSend channel: '#project', color: 'danger', message: "Build failed: ${currentBuild.fullDisplayName}"
         }
     }
-    }
+    
     
   
 }
