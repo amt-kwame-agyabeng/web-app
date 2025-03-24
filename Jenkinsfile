@@ -65,7 +65,7 @@ pipeline {
         
     }
     
-   post {
+    post {
         success {
             slackSend channel: '#project', color: COLOR_MAP['SUCCESS'], message: "✅ Build successful: ${currentBuild.fullDisplayName}"
         }
