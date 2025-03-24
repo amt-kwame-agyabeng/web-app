@@ -67,11 +67,12 @@ pipeline {
     
     post {
         success {
-            slackSend channel: '#project', color: COLOR_MAP['SUCCESS'], message: "✅ Build successful: ${currentBuild.fullDisplayName}"
+            slackSend channel: '#project', color: 'good', message: "Build successful: ${currentBuild.fullDisplayName}"
         }
         failure {
-            slackSend channel: '#project', color: COLOR_MAP['FAILURE'], message: "❌ Build failed: ${currentBuild.fullDisplayName}"
+            slackSend channel: '#project', color: 'danger', message: "Build failed: ${currentBuild.fullDisplayName}"
         }
+    }
     }
     
   
